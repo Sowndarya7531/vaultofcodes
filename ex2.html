@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-image: url("https://img.freepik.com/free-vector/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg");
+      background-size: cover;
+    }
+    
+
+    .card {
+  box-shadow: 4px 20px 20px 4px rgba(0, 0, 0, 0.2);
+  transition: 5s;
+  width: 400px; /* Set the width to your desired value */
+  height: 200px; /* Set the height to your desired value */
+  background-color:white;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+    #password-strength {
+      width: 200px;
+      height: 20px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    #strength-indicator {
+      width: 0;
+      height: 100%;
+      position: absolute;
+    }
+
+    #strength-text {
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #weak {
+      background-color: red;
+    }
+
+    #medium {
+      background-color: orange;
+    }
+
+    #strong {
+      background-color: green;
+    }
+    h2{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: crimson;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div>
+        
+        <h2>Password-Strength-Indicator</h2>
+      <label for="password">Password:</label>
+      <input type="password" id="password" oninput="checkPasswordStrength()">
+    </div>
+    <div id="password-strength">
+      <div id="strength-indicator"></div>
+      <div id="strength-text"></div>
+    </div>
+    <input type="submit" value="Submit" />
+  </div>
+
+  <script>
+    function checkPasswordStrength() {
+      const password = document.getElementById("password").value;
+      const strengthIndicator = document.getElementById("strength-indicator");
+      const strengthText = document.getElementById("strength-text");
+
+      if (password.length < 6) {
+        strengthIndicator.style.width = "0%";
+        strengthText.textContent = "The password: Weak";
+        strengthText.style.color = "red";
+      } else if (password.length <= 8) {
+        strengthIndicator.style.width = "50%";
+        strengthText.textContent = "The password: Medium";
+        strengthText.style.color = "orange";
+      } else {
+        strengthIndicator.style.width = "100%";
+        strengthText.textContent = "The password: Strong";
+        strengthText.style.color = "green";
+      }
+    }
+  </script>
+</body>
+</html>
