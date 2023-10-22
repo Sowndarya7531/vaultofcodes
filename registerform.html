@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Sniglet|Raleway:900);
+
+        body, html {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: 'Sniglet', cursive;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 4em;
+            font-family: 'Raleway', sans-serif;
+            margin: 0 auto;
+            margin-top: 30px;
+            width: 500px;
+            color: blue;
+            text-align: center;
+        }
+
+        /* Animation webkit */
+        @-webkit-keyframes myfirst {
+            0% {
+                margin-left: -235px
+            }
+
+            90% {
+                margin-left: 100%;
+            }
+
+            100% {
+                margin-left: 100%;
+            }
+        }
+
+        /* Animation */
+        @keyframes myfirst {
+            0% {
+                margin-left: -235px
+            }
+
+            70% {
+                margin-left: 100%;
+            }
+
+            100% {
+                margin-left: 100%;
+            }
+        }
+
+        .fish {
+            background-image: url('http://www.geertjanhendriks.nl/codepen/form/fish.png');
+            width: 235px;
+            height: 104px;
+            margin-left: -235px;
+            position: absolute;
+            animation: myfirst 24s;
+            -webkit-animation: myfirst 24s;
+            animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            -webkit-animation-timing-function: linear;
+        }
+
+        #fish {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element precisely */
+}
+
+
+#fish2 {
+    position: absolute;
+    top: 20%; /* Center vertically */
+    left: 20%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element precisely */
+    animation-delay: 12s;
+    -webkit-animation-delay: 12s;
+}
+#fish3 {
+    position: absolute;
+    top: 70%; /* Center vertically */
+    left: 20%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the element precisely */
+    animation-delay: 12s;
+    -webkit-animation-delay: 12s;
+}
+
+
+        #form {
+            background-color: #98d4f3;
+            overflow-y: scroll;
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        form {
+            margin: 0 auto;
+            width: 500px;
+            padding: 40px 0;
+            color: white;
+        }
+
+        label, input, textarea {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input, textarea, select {
+            width: 500px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            padding: 10px;
+            font-family: 'Sniglet', cursive;
+            font-size: 1em;
+            color: #676767;
+            transition: border 0.5s;
+            -webkit-transition: border 0.5s;
+            -moz-transition: border 0.5s;
+            -o-transition: border 0.5s;
+            border: solid 3px #98d4f3;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border: solid 3px #77bde0;
+        }
+
+        textarea {
+            height: 200px;
+            resize: none;
+            overflow: auto;
+        }
+
+        input[type="submit"] {
+            background-color: dodgerblue;
+            color: white;
+            height: 50px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 1.29em;
+            font-family: 'Sniglet', cursive;
+            -webkit-transition: background-color 0.5s;
+            -moz-transition: background-color 0.5s;
+            -o-transition: background-color 0.5s;
+            transition: background-color 0.5s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e58f0e;
+        }
+
+        label {
+            font-size: 1.5em;
+            padding-left: 20px;
+        }
+
+        .formgroup,
+        .formgroup-active,
+        .formgroup-error {
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: 100%;
+            transition: background-image 0.7s;
+            -webkit-transition: background-image 0.7s;
+            -moz-transition: background-image 0.7s;
+            -o-transition: background-image 0.7s;
+            width: 100%;
+        }
+
+        .formgroup {
+            background-image: url('http://www.geertjanhendriks.nl/codepen/form/pixel.gif');
+        }
+
+        .formgroup-active {
+            background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo.png');
+        }
+
+        .formgroup-error {
+            background-image: url('http://www.geertjanhendriks.nl/codepen/form/octo-error.png');
+            color: red;
+        }
+        .checkbox-label {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-label input[type="checkbox"] {
+    margin-right: 10px; /* Add spacing between the checkbox and text */
+  }
+  .form-group2 {
+            margin: 10px 0;
+            float:"left";
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="form">
+        <h1>Contact us</h1>
+        <div class="fish" id="fish"></div>
+        <div class="fish" id="fish2"></div>
+        <div class="fish" id="fish3"></div>
+
+        <form id="waterform" method="post" onsubmit="return validateForm()">
+
+            <div class="formgroup" id="name-form">
+                <label for="name">Your name*</label>
+                <input type="text" id="name" name="name" />
+            </div>
+
+            <div class="formgroup" id="email-form">
+                <label for="email">Your e-mail*</label>
+                <input type="email" id="email" name="email" />
+            </div>
+
+            <div class="formgroup" id="password-form">
+                <label for="password">Password*</label>
+                <input type="password" id="password">
+            </div>
+
+            <div class="formgroup" id="confirm-password-form">
+                <label for="confirmPassword">Confirm Password*</label>
+                <input type="password" id="confirmPassword">
+            </div>
+
+            <div class="formgroup" id="dob-form">
+                <label for="date">Date Of Birth:*</label>
+                <input type="date" id="date">
+            </div>
+
+            
+            <div class="formgroup" id="gender-form">
+                <label for="language">Gender*</label>
+                <select name="language" id="language">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <div class="formgroup" id="photo-form">
+                <label for="photo">Profile*</label>
+                <input type="file" id="photo" name="photo"  accept="image/*">
+                    
+                    <div class="form-group2">
+                        <input type="checkbox" id="terms_and_conditions" name="terms_and_conditions" required>
+                        <label for="terms_and_conditions">I agree to the terms and conditions</label>
+                    </div>
+            <p id="passwordError" style="color: white;"></p>
+
+            <input type="submit" value="Register" />
+        </form>
+        
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password !== confirmPassword) {
+                document.getElementById("passwordError").innerText = "Passwords do not match!";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+
+</html>
